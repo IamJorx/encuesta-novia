@@ -1,4 +1,14 @@
 /* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212;
+}
+
 .app {
   max-width: 600px;
   margin: auto;
@@ -8,11 +18,39 @@
   background: linear-gradient(to bottom right, #ffe6f0, #ffeaf7);
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dark-mode {
+  background: linear-gradient(to bottom right, #121212, #1f1f1f);
+  color: #f0f0f0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.mode-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.mode-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  margin: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
   color: #d63384;
   margin-bottom: 2rem;
+}
+
+.dark-mode h1 {
+  color: #ff80ab;
 }
 
 .question {
@@ -39,7 +77,16 @@ button {
   margin-top: 2rem;
 }
 
+.dark-mode button {
+  background: #ff80ab;
+  color: #333;
+}
+
 .result h2 {
   font-size: 1.5rem;
   color: #99004d;
+}
+
+.dark-mode .result h2 {
+  color: #ff80ab;
 }

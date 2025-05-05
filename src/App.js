@@ -23,6 +23,7 @@ const questions = [
 function App() {
 	const [answers, setAnswers] = useState(Array(5).fill(5));
 	const [showResult, setShowResult] = useState(false);
+	const [darkMode, setDarkMode] = useState(true);
 
 	const handleChange = (index, value) => {
 		const newAnswers = [...answers];
@@ -37,8 +38,17 @@ function App() {
 		return '¡Tienes un crush fuerte! 😳💘';
 	};
 
+	const toggleDarkMode = () => {
+		setDarkMode(!darkMode);
+	};
+
 	return (
-		<div className='app'>
+		<div className={`app ${darkMode ? 'dark-mode' : ''}`}>
+			<div className='mode-toggle'>
+				<button onClick={toggleDarkMode} className='mode-button'>
+					{darkMode ? '☀️' : '🌙'}
+				</button>
+			</div>
 			<h1>💖 Encuesta de Satisfacción 💖</h1>
 			{!showResult ? (
 				<>
@@ -60,6 +70,7 @@ function App() {
 			) : (
 				<div className='result'>
 					<h2>{getResultMessage()}</h2>
+					<button onClick={() => setShowResult(false)}>Regresar</button>
 				</div>
 			)}
 		</div>
